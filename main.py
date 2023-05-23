@@ -16,7 +16,7 @@ from api.joke import joke_api # Blueprint import api definition
 from api.user import user_api # Blueprint import api definition
 from api.player import player_api
 
-
+db.init_app(app)
 # setup App pages
 from projects.projects import app_projects # Blueprint directory import projects definition
 
@@ -42,7 +42,7 @@ def stub():
 
 @app.before_first_request
 def activate_job():  # activate these items 
-    db.init_app(app)
+
     initJokes()
     initUsers()
     initPlayers()
