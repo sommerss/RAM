@@ -12,14 +12,13 @@ class ReaderAPI:
         def post(self):
             body = request.get_json()
             
-            username = body.get('username')
+           
             name = body.get('name')
             book = body.get('book')
             finishedate = body.get('finishedate')
             rating = body.get('rating')
             
-            if not username or len(username) < 1:
-                return {'message': 'Username is missing or invalid'}, 400
+          
             
             if not name or len(name) < 1:
                 return {'message': 'Name is missing or invalid'}, 400
@@ -33,7 +32,7 @@ class ReaderAPI:
             if rating is None or rating < 0 or rating > 5:
                 return {'message': 'Book rating is missing or invalid'}, 400
             
-            reader = Readers(username=username, name=name, book=book, finishedate=finishedate, rating=rating)
+            reader = Readers( name=name, book=book, finishedate=finishedate, rating=rating)
             db.session.add(reader)
             db.session.commit()
             
