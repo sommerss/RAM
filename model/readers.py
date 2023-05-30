@@ -13,18 +13,18 @@ class Readers(db.Model):
     __tablename__ = 'readers'  
 
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(255), unique=True, nullable=False)
-    name = db.Column(db.String(255), nullable=False)
-    book = db.Column(db.String(255), nullable=False)
-    finishedate = db.Column(db.String(255), nullable=False)
-    rating = db.Column(db.Integer, nullable=False)
+    _username = db.Column(db.String(255), unique=True, nullable=False)
+    _name = db.Column(db.String(255), nullable=False)
+    _book = db.Column(db.String(255), nullable=False)
+    _finishedate = db.Column(db.String(255), nullable=False)
+    _rating = db.Column(db.Integer, nullable=False)
 
     def __init__(self, username, name, book, finishedate, rating):
-        self.username = username
-        self.name = name
-        self.book = book
-        self.finishedate = finishedate
-        self.rating = rating
+        self._username = username
+        self._name = name
+        self._book = book
+        self._finishedate = finishedate
+        self._rating = rating
 
 
     # a name getter method, extracts username from object
@@ -145,9 +145,9 @@ def initReaders():
         """Create database and tables"""
         db.create_all()
         """Tester data for table"""
-        r1 = Readers(username="rey444", name="Shreya", book ="The Hunger Games", finishedate=2019, rating=5)
-        r2 = Readers(username="jiyu", name="Jiya", book ="Divergent", finishedate=2019, rating=3)
-        r3 = Readers(username="vai", name="Vaishavi", book ="Animal Farm", finishedate=2019, rating=4)
+        r1 = Readers( username="ssdebate", name="Shreya", book ="The Hunger Games", finishedate=2019, rating=5)
+        r2 = Readers( username="jdiver", name="Jiya", book ="Divergent", finishedate=2019, rating=3)
+        r3 = Readers( username="vaf", name="Vaishavi", book ="Animal Farm", finishedate=2019, rating=4)
 
 
         readers = [r1, r2, r3]
