@@ -152,7 +152,7 @@ def initReaders():
 
         readers = [r1, r2, r3]
 
-    """Builds sample car/note(s) data""" # NEEDS TO CONNECT TO CARSPEC.PY FILE THAT BUILDS THE API
+ 
     for reader in readers:
         try:
             reader.create()
