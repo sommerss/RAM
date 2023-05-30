@@ -12,7 +12,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 ''' Tutorial: https://www.sqlalchemy.org/library.html#tutorials, try to get into Python shell and follow along '''
 
 class Player(db.Model):
-    __tablename__ = 'players'  # table name is plural, class name is singular
+    __tablename__ = 'Players'  # table name is plural, class name is singular
 
     # Define the Player schema with "vars" from object
     id = db.Column(db.Integer, primary_key=True)

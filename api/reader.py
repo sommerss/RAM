@@ -2,7 +2,7 @@ from flask import Blueprint, request, jsonify
 from flask_restful import Api, Resource
 from datetime import datetime
 
-from model import Readers, db
+from model.readers import Readers, db
 
 reader_api = Blueprint('reader_api', __name__, url_prefix='/api/reader')
 api = Api(reader_api)
