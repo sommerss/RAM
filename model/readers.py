@@ -145,7 +145,7 @@ def initReaders():
         """Create database and tables"""
         db.create_all()
         """Tester data for table"""
-        r1 = Readers( username="ssdebate", name="Shreya", book ="The Hunger Games", finishedate=2019, rating=5)
+        r1 = Readers( username="ssdebates", name="Shreya", book ="The Hunger Games", finishedate=2019, rating=5)
         r2 = Readers( username="jdiver", name="Jiya", book ="Divergent", finishedate=2019, rating=3)
         r3 = Readers( username="vaf", name="Vaishavi", book ="Animal Farm", finishedate=2019, rating=4)
 
