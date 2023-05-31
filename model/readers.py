@@ -6,8 +6,12 @@ from __init__ import db
 from __init__ import app, db
 from sqlalchemy.exc import IntegrityError
 
+
+
+
 reader_api = Blueprint('reader_api', __name__, url_prefix='/api/reader')
 api = Api(reader_api)
+
 
 class Readers(db.Model):
     __tablename__ = 'readers'  

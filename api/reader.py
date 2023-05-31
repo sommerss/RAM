@@ -4,6 +4,21 @@ from datetime import datetime
 
 from model.readers import Readers, db
 
+from flask import Blueprint, jsonify
+from flask_cors import CORS
+
+api_blueprint = Blueprint('api', __name__)
+CORS(api_blueprint)
+
+@api_blueprint.route('/api/reader', methods=['POST'])
+def handle_post_request():
+    # Handle the POST request here
+    # ...
+
+    # Return a JSON response
+    return jsonify({'message': 'POST request handled successfully'})
+
+
 reader_api = Blueprint('reader_api', __name__, url_prefix='/api/reader')
 api = Api(reader_api)
 
