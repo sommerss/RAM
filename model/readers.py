@@ -13,14 +13,14 @@ class Readers(db.Model):
     __tablename__ = 'readers'  
 
     id = db.Column(db.Integer, primary_key=True)
-    
+    _username = db.Column(db.String(255), unique=True, nullable=False)
     _name = db.Column(db.String(255), nullable=False)
     _book = db.Column(db.String(255), nullable=False)
     _finishedate = db.Column(db.String(255), nullable=False)
     _rating = db.Column(db.Integer, nullable=False)
 
-    def __init__(self, name, book, finishedate, rating):
- 
+    def __init__(self, username, name, book, finishedate, rating):
+        self._username = username
         self._name = name
         self._book = book
         self._finishedate = finishedate
@@ -28,7 +28,14 @@ class Readers(db.Model):
 
 
     # a name getter method, extracts username from object
-
+    @property
+    def username(self):
+        return self._username
+   
+    # a setter function, allows username to be updated after initial object creation
+    @username.setter
+    def username(self, username):
+        self._username = username
 
 
     # a name getter method, extracts name from object
@@ -93,7 +100,7 @@ class Readers(db.Model):
     def read(self):
         return {
             "id": self.id,
-          
+            "username": self.username,
             "name": self.name,
             "book": self.book,
             "finishedate": self.finishedate,
@@ -102,9 +109,10 @@ class Readers(db.Model):
 
     # CRUD update: updates user name, password, phone
     # returns self
-    def update(self, name, book, finishedate, rating):
+    def update(self, username, name, book, finishedate, rating):
         """only updates values with length"""
-       
+        if len(username) > 0:
+            self.username = username
         if len(name) > 0:
             self.name = name
         if len(book) > 0:
@@ -137,9 +145,9 @@ def initReaders():
         """Create database and tables"""
         db.create_all()
         """Tester data for table"""
-        r1 = Readers(  name="Shreya", book ="The Hunger Games", finishedate=2019, rating=5)
-        r2 = Readers(  name="Jiya", book ="Divergent", finishedate=2019, rating=3)
-        r3 = Readers(  name="Vaishavi", book ="Animal Farm", finishedate=2019, rating=4)
+        r1 = Readers( username="ssdebate", name="Shreya", book ="The Hunger Games", finishedate=2019, rating=5)
+        r2 = Readers( username="jdiver", name="Jiya", book ="Divergent", finishedate=2019, rating=3)
+        r3 = Readers( username="vaf", name="Vaishavi", book ="Animal Farm", finishedate=2019, rating=4)
 
 
         readers = [r1, r2, r3]
