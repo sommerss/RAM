@@ -1,5 +1,19 @@
 import threading
 
+from flask import Flask
+from flask_cors import CORS
+
+app = Flask(__name__)
+CORS(app, resources={r"/*": {"origins": "*"}})
+
+# Define your API routes and other backend functionality here
+# ...
+
+
+# Define your API routes and other backend functionality here
+# ...
+
+
 # import "packages" from flask
 from flask import render_template  # import render_template from "public" flask libraries
 
@@ -56,3 +70,5 @@ if __name__ == "__main__":
     from flask_cors import CORS
     cors = CORS(app)
     app.run(debug=True, host="0.0.0.0", port="8889")
+
+
